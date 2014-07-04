@@ -555,8 +555,7 @@ Translations of the guide are available in the following languages:
   SomeModule::SomeClass()
   ```
 
-* Use `def` with parentheses when there are arguments. Omit the
-  parentheses when the method doesn't accept any arguments.
+* Always omit parenthesis with method definitions
 
    ```Ruby
    # bad
@@ -569,12 +568,12 @@ Translations of the guide are available in the following languages:
      # body omitted
    end
 
-   # bad
+   # good
    def some_method_with_arguments arg1, arg2
      # body omitted
    end
 
-   # good
+   # bad
    def some_method_with_arguments(arg1, arg2)
      # body omitted
    end
@@ -920,8 +919,7 @@ Translations of the guide are available in the following languages:
 * Omit parentheses around parameters for methods that are part of an
   internal DSL (e.g. Rake, Rails, RSpec), methods that have
   "keyword" status in Ruby (e.g. `attr_reader`, `puts`) and attribute
-  access methods. Use parentheses around the arguments of all other
-  method invocations.
+  access methods.
 
   ```Ruby
   class Person
@@ -964,7 +962,7 @@ Translations of the guide are available in the following languages:
   end
   ```
 
-* Omit parentheses for method calls with no arguments.
+* Omit parentheses for method calls with less than two arguments, unless the argument is a method call itself. Otherwise, use them.
 
   ```Ruby
   # bad
@@ -973,11 +971,20 @@ Translations of the guide are available in the following languages:
   fork()
   'test'.upcase()
 
+ # bad
+ object.method arg1, arg2, arg3
+ object.method another_method arg1
+ object.method(arg1)
   # good
   Kernel.exit!
   2.even?
   fork
   'test'.upcase
+  
+  #good
+  object.method(arg1, arg2, arg3)
+  object.method arg1
+  object.method(another_method(arg1))
   ```
 
 * Prefer `{...}` over `do...end` for single-line blocks.  Avoid using
