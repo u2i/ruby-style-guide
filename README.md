@@ -1672,6 +1672,23 @@ condition](#safe-assignment-in-condition).
   end
   ```
 
+  Prefer `next` in loops instead of conditional blocks.
+
+  ```Ruby
+  # bad
+  [0, 1, 2, 3].each do |item|
+    if item > 1
+      puts item
+    end
+  end
+
+  # good
+  [0, 1, 2, 3].each do |item|
+    next unless item > 1
+    puts item
+  end
+  ```
+
 * <a name="map-find-select-reduce-size"></a>
   Prefer `map` over `collect`, `find` over `detect`, `select` over `find_all`,
   `reduce` over `inject` and `size` over `length`. This is not a hard
