@@ -1672,10 +1672,10 @@ condition](#safe-assignment-in-condition).
   end
   ```
 
-  Prefer `next` in loops instead of conditional blocks.
+  Prefer `next` in loops instead of conditional blocks. `next` is more clear when conditional expression is complex or we have multiple nested conditional expressions.
 
   ```Ruby
-  # bad
+  # ok
   [0, 1, 2, 3].each do |item|
     if item > 1
       puts item
