@@ -244,7 +244,7 @@ Translations of the guide are available in the following languages:
   the advantage of adding visual difference between block and hash
   literals. Whichever one you pick - apply it consistently.
 
-j <a name="no-spaces-braces"></a>
+<a name="no-spaces-braces"></a>
   No spaces after `(`, `[` or before `]`, `)`.
 <sup>[[link](#no-spaces-braces)]</sup>
 
@@ -545,7 +545,8 @@ j <a name="no-spaces-braces"></a>
 <sup>[[link](#rdoc-conventions)]</sup>
 
 * <a name="80-character-limits"></a>
-  Limit lines to 80 characters.
+  Limit lines to 120 characters. Files in `spec` folder don't have any limit on the length of their
+  lines.
 <sup>[[link](#80-character-limits)]</sup>
 
 * <a name="no-trailing-whitespace"></a>
